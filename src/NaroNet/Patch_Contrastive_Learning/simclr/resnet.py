@@ -25,6 +25,7 @@ from __future__ import division
 from __future__ import print_function
 
 from absl import flags
+import keras
 import tensorflow.compat.v1 as tf
 
 from tensorflow.python.tpu import tpu_function  # pylint: disable=g-direct-tensorflow-import
@@ -34,7 +35,7 @@ FLAGS = flags.FLAGS
 BATCH_NORM_EPSILON = 1e-5
 
 
-class BatchNormalization(tf.layers.BatchNormalization):
+class BatchNormalization(keras.layers.BatchNormalization):
   """Batch Normalization layer that supports cross replica computation on TPU.
 
   This class extends the keras.BatchNormalization implementation by supporting
